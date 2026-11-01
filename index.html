@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="th">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แข่งทักษะนวัตกรรมธุรกิจดิจิทัล 2569</title>
+<meta name="description" content="ประชาสัมพันธ์การแข่งขันทักษะการพัฒนานวัตกรรมเทคโนโลยีธุรกิจดิจิทัล ระดับ ปวส. 10–12 พฤศจิกายน 2569 จัดโดยแผนกวิชาเทคโนโลยีธุรกิจดิจิทัล วิทยาลัยพณิชยการธนบุรี">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: illustrated hero, then 1 date/time band, 2 participant info, 3 schedule, 4 scoring */
+:root {
+  --bg: #f1f8f3;
+  --surface: #ffffff;
+  --ink: #0f2a1d;
+  --muted: #4f6b5c;
+  --line: #d2e6d9;
+  --accent: #12924f;
+  --accent-soft: #dcf3e5;
+  --lime: #b5e550;
+  --sun: #f5b82e;
+  --sun-soft: #fff2cf;
+  --deep: #0b3d2a;
+  --deep-2: #0f5c3a;
+  --font-display: "Chakra Petch", "IBM Plex Sans Thai", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a1510; --surface: #12211a; --ink: #e3f2e8; --muted: #93b2a0; --line: #233a2d;
+    --accent: #45c97c; --accent-soft: #173323; --sun: #f7c34f; --sun-soft: #3a2e10;
+    --deep: #072519; --deep-2: #0b3a26;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a1510; --surface: #12211a; --ink: #e3f2e8; --muted: #93b2a0; --line: #233a2d;
+  --accent: #45c97c; --accent-soft: #173323; --sun: #f7c34f; --sun-soft: #3a2e10;
+  --deep: #072519; --deep-2: #0b3a26;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.25; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
+
+/* Hero */
+.hero {
+  position: relative; overflow: hidden; color: #fff;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(181,229,80,.22), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(245,184,46,.16), transparent 40%),
+    linear-gradient(135deg, var(--deep) 0%, var(--deep-2) 60%, #13804a 100%);
+  padding-block: 48px 40px;
+}
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; }
+.hero-grid > * { min-width: 0; }
+.hero h1 { font-size: clamp(28px, 4.8vw, 48px); font-weight: 700; }
+.hero h1 span { color: var(--lime); }
+.hero .lede { margin-top: 14px; font-size: 17px; color: #d7f0e0; max-width: 34em; }
+.hero .lede b { color: var(--sun); font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.chip { font-size: 14px; font-weight: 500; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,.14); }
+.chip.sun { background: var(--sun); color: #3a2a00; }
+.nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.nav a {
+  color: #fff; text-decoration: none; font-size: 14px;
+  border: 1px solid rgba(255,255,255,.35); border-radius: 8px; padding: 6px 12px;
+}
+.nav a:hover { background: rgba(255,255,255,.14); }
+.art { width: 100%; height: auto; display: block; }
+.art .lbl { font-family: var(--font-mono); font-size: 11px; fill: #cfeedd; }
+
+section { padding-block: 56px; scroll-margin-top: 8px; }
+.head { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.head .n {
+  flex: none; width: 40px; height: 40px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--accent); color: #fff;
+  font-family: var(--font-display); font-weight: 700; font-size: 18px;
+  box-shadow: 0 4px 0 var(--deep-2);
+}
+.head h2 { font-size: clamp(22px, 3.2vw, 30px); }
+.head p { color: var(--muted); font-size: 15px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
+.small { font-size: 14px; color: var(--muted); }
+.pdf-link { display: inline-flex; gap: 6px; margin-top: 16px; font-size: 15px; font-weight: 500; }
+
+/* 1. Date & time band */
+.when { background: var(--accent-soft); border-bottom: 1px solid var(--line); padding-block: 40px 48px; }
+.when .head .n { background: var(--sun); color: #3a2a00; box-shadow: 0 4px 0 #b9851a; }
+.when-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; }
+.when-grid > * { min-width: 0; }
+.when .big { font-family: var(--font-display); font-size: clamp(30px, 5vw, 48px); font-weight: 700; line-height: 1.15; color: var(--ink); }
+.when .big span { color: var(--accent); }
+.when .place { margin-top: 10px; color: var(--muted); }
+.count { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.count div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 8px; text-align: center; box-shadow: 0 3px 0 var(--line); }
+.count b { display: block; font-family: var(--font-display); font-size: 36px; line-height: 1.1; color: var(--accent); }
+.count span { font-size: 13px; color: var(--muted); }
+.count-note { margin-top: 10px; font-size: 14px; color: var(--muted); text-align: center; }
+.meet { margin-top: 24px; padding: 14px 18px; border-radius: 12px; background: var(--sun-soft); border-left: 4px solid var(--sun); font-size: 15px; }
+
+/* 2. Info */
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.info-grid > .card { padding: 20px; min-width: 0; }
+.info-grid .ico {
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  background: var(--accent-soft); margin-bottom: 12px;
+}
+.info-grid .ico svg { width: 24px; height: 24px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.info-grid h3 { font-size: 18px; margin-bottom: 8px; }
+.info-grid ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; font-size: 15px; }
+.info-grid li::marker { color: var(--accent); }
+.team { display: flex; gap: 8px; margin-bottom: 10px; }
+.team span { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 14px; background: var(--accent); color: #fff; }
+.team span.r { background: var(--sun); color: #3a2a00; }
+.team span.t { background: var(--deep-2); }
+.links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+.links a {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 16px 18px; min-width: 0; text-decoration: none; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  transition: border-color .15s, background .15s, transform .15s;
+}
+.links a:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
+.links a.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.links a.primary:hover { filter: brightness(1.08); background: var(--accent); }
+.links strong { font-family: var(--font-display); font-weight: 600; display: block; }
+.links small { font-size: 13px; opacity: .75; }
+.links .arrow { font-family: var(--font-mono); flex: none; }
+.contact-card { margin-top: 16px; padding: 18px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; background: var(--sun-soft); border-color: transparent; }
+.contact-card h3 { font-size: 17px; }
+.contact-card span { font-size: 15px; }
+.contact-card a { font-family: var(--font-mono); text-decoration: none; font-weight: 500; }
+
+/* 3. Schedule */
+.schedule { background: var(--surface); border-block: 1px solid var(--line); }
+.days { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.day { padding: 20px; min-width: 0; background: var(--bg); border: 1px solid var(--line); border-radius: 16px; }
+.day-top { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 2px dashed var(--line); }
+.day-top .d {
+  flex: none; width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 26px; font-weight: 700; color: #fff; background: var(--accent);
+}
+.day:nth-child(2) .day-top .d { background: var(--deep-2); }
+.day:nth-child(3) .day-top .d { background: var(--sun); color: #3a2a00; }
+.day-top .w { font-size: 14px; color: var(--muted); line-height: 1.4; }
+.day-top .w b { display: block; color: var(--ink); font-size: 16px; }
+.day ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; }
+.day li { display: grid; grid-template-columns: 92px 1fr; gap: 8px; font-size: 15px; }
+.day li > * { min-width: 0; }
+.day time { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 2px; }
+.day li.main { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 8px; padding: 8px; margin-inline: -8px; font-weight: 600; }
+
+/* 4. Criteria */
+.score { padding: 24px; }
+.score-row { display: grid; grid-template-columns: 240px 1fr 64px; gap: 14px; align-items: center; padding-block: 10px; }
+.score-row + .score-row { border-top: 1px solid var(--line); }
+.score-row > * { min-width: 0; }
+.score-row .lbl { font-weight: 500; }
+.score-row .lbl small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; }
+.bar { height: 12px; border-radius: 999px; background: var(--accent-soft); overflow: hidden; }
+.bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), var(--lime)); border-radius: 999px; }
+.score-row .pts { font-family: var(--font-display); font-size: 20px; font-weight: 700; text-align: right; color: var(--accent); }
+.score-total { display: flex; justify-content: space-between; margin-top: 8px; padding-top: 12px; border-top: 2px solid var(--ink); font-family: var(--font-display); font-weight: 700; font-size: 18px; }
+.medals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+.medal { padding: 14px 16px; display: flex; align-items: center; gap: 12px; min-width: 0; }
+.medal .dot { flex: none; width: 32px; height: 32px; border-radius: 50%; box-shadow: inset 0 -3px 0 rgba(0,0,0,.15); }
+.medal b { font-family: var(--font-display); display: block; }
+.medal span { font-size: 14px; color: var(--muted); }
+
+footer { background: var(--deep); color: #cfe9da; padding-block: 28px; font-size: 14px; }
+footer b { color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 16px; display: block; }
+footer .ic {
+  display: inline-grid; place-items: center; vertical-align: middle;
+  width: 30px; height: 30px; margin-left: 6px; border-radius: 50%;
+  background: var(--lime); color: var(--deep); font-size: 12px; font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .hero-grid, .when-grid, .days { grid-template-columns: 1fr; }
+  .art { max-width: 380px; margin-inline: auto; }
+  .info-grid, .links { grid-template-columns: 1fr; }
+  .score-row { grid-template-columns: 1fr 56px; }
+  .score-row .bar { grid-column: 1 / -1; grid-row: 2; }
+}
+@media (max-width: 480px) {
+  .medals { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .art .float { animation: float 5s ease-in-out infinite; transform-box: fill-box; }
+  .art .float.b { animation-delay: -2.5s; }
+  .art .grow { transform-box: fill-box; transform-origin: bottom; animation: grow 1.2s ease-out both; }
+  @keyframes float { 50% { transform: translateY(-8px) rotate(6deg); } }
+  @keyframes grow { from { transform: scaleY(0); } }
+}
+</style>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>การแข่งขันทักษะ<br><span>พัฒนานวัตกรรมเทคโนโลยีธุรกิจดิจิทัล</span></h1>
+      <p class="lede">ระดับ ปวส. ระดับอาชีวศึกษากรุงเทพ ปีการศึกษา 2569 โจทย์ <b>“Green Digital”</b> พัฒนาเว็บแอปพลิเคชันเพื่ออนุรักษ์สิ่งแวดล้อม</p>
+      <div class="chips">
+        <span class="chip sun">10–12 พ.ย. 2569</span>
+        <span class="chip">ณ วิทยาลัยพณิชยการบางนา</span>
+        <span class="chip">ทีมละ 3 คน</span>
+      </div>
+      <nav class="nav" aria-label="ไปยังหัวข้อ">
+        <a href="#when">วันและเวลา</a>
+        <a href="#info">ข้อมูลผู้เข้าแข่งขัน</a>
+        <a href="#schedule">กำหนดการ</a>
+        <a href="#criteria">เกณฑ์</a>
+      </nav>
+    </div>
+    <svg class="art" viewBox="0 0 420 340" role="img" aria-label="ภาพประกอบ: จอคอมพิวเตอร์แสดงกราฟเติบโตและใบไม้ สื่อถึงเทคโนโลยีดิจิทัลเพื่อสิ่งแวดล้อม">
+      <circle cx="215" cy="165" r="150" fill="rgba(255,255,255,.06)"/>
+      <circle cx="215" cy="165" r="110" fill="rgba(181,229,80,.08)"/>
+      <!-- circuit -->
+      <g stroke="#b5e550" stroke-width="2" fill="none" opacity=".7">
+        <polyline points="70,150 30,150 30,90"/>
+        <polyline points="70,200 40,200 40,250 20,250"/>
+        <polyline points="350,210 390,210 390,270"/>
+      </g>
+      <g fill="#b5e550"><circle cx="30" cy="88" r="5"/><circle cx="20" cy="250" r="5"/><circle cx="390" cy="272" r="5"/></g>
+      <!-- monitor -->
+      <rect x="70" y="70" width="280" height="180" rx="16" fill="#08281c" stroke="#b5e550" stroke-width="2"/>
+      <rect x="84" y="84" width="252" height="148" rx="8" fill="#114130"/>
+      <rect x="190" y="250" width="40" height="28" fill="#08281c"/>
+      <rect x="146" y="276" width="128" height="12" rx="6" fill="#08281c" stroke="#b5e550" stroke-width="1.5"/>
+      <!-- screen: top bar -->
+      <circle cx="98" cy="98" r="4" fill="#f5b82e"/><circle cx="111" cy="98" r="4" fill="#b5e550"/><circle cx="124" cy="98" r="4" fill="#45c97c"/>
+      <!-- screen: chart -->
+      <line x1="100" y1="214" x2="226" y2="214" stroke="#2f6b51" stroke-width="2"/>
+      <rect class="grow" x="106" y="184" width="18" height="30" rx="3" fill="#2fae66"/>
+      <rect class="grow" x="132" y="166" width="18" height="48" rx="3" fill="#45c97c" style="animation-delay:.15s"/>
+      <rect class="grow" x="158" y="146" width="18" height="68" rx="3" fill="#7fd99c" style="animation-delay:.3s"/>
+      <rect class="grow" x="184" y="122" width="18" height="92" rx="3" fill="#b5e550" style="animation-delay:.45s"/>
+      <polyline points="115,176 141,158 167,138 193,114 214,106" fill="none" stroke="#f5b82e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="214" cy="106" r="4" fill="#f5b82e"/>
+      <!-- screen: leaf -->
+      <path d="M244 214 C 240 160, 280 126, 322 116 C 324 170, 292 210, 244 214 Z" fill="#b5e550"/>
+      <path d="M248 210 C 270 180, 292 152, 316 124" stroke="#114130" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M270 182 L 262 160 M286 162 L 280 144 M276 172 L 296 170" stroke="#114130" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- badges -->
+      <g class="float">
+        <circle cx="352" cy="64" r="30" fill="#f5b82e"/>
+        <path d="M340 64 a12 12 0 1 1 6 10.4" fill="none" stroke="#3a2a00" stroke-width="3" stroke-linecap="round"/>
+        <path d="M341 79 l5 -4.6 l-6.4 -2" fill="none" stroke="#3a2a00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g class="float b">
+        <path d="M62 52 C 62 34, 78 24, 96 22 C 96 40, 82 52, 62 52 Z" fill="#45c97c"/>
+        <path d="M64 50 L 92 26" stroke="#0b3d2a" stroke-width="2" stroke-linecap="round"/>
+      </g>
+      <g class="float">
+        <path d="M372 140 C 374 128, 384 122, 396 122 C 394 134, 386 142, 372 140 Z" fill="#b5e550"/>
+      </g>
+      <text class="lbl" x="210" y="320" text-anchor="middle">GREEN DIGITAL · WEB APPLICATION</text>
+    </svg>
+  </div>
+</header>
+
+<main>
+  <!-- 1. Date & time -->
+  <section id="when" class="when">
+    <div class="wrap">
+      <div class="head"><span class="n">1</span><div><h2>วันและเวลาแข่งขัน</h2><p>รายงานตัวก่อนแข่งขัน 30 นาที พร้อมบัตรนักศึกษา</p></div></div>
+      <div class="when-grid">
+        <div>
+          <p class="big">10–12 <span>พฤศจิกายน</span> 2569</p>
+          <p class="place">เริ่มลงทะเบียน 08.00 น. ทุกวัน · ห้อง 9601 อาคาร 9 ชั้น 6 วิทยาลัยพณิชยการบางนา</p>
+        </div>
+        <div>
+          <div class="count" id="count" aria-live="polite">
+            <div><b id="cd-d">–</b><span>วัน</span></div>
+            <div><b id="cd-h">–</b><span>ชั่วโมง</span></div>
+            <div><b id="cd-m">–</b><span>นาที</span></div>
+          </div>
+          <p class="count-note" id="count-note">นับถอยหลังถึงวันแข่งขัน</p>
+        </div>
+      </div>
+      <div class="meet"><strong>ประชุมออนไลน์</strong> วันจันทร์ที่ 2 พฤศจิกายน 2569 เวลา 09.30 น. · <a href="https://meet.google.com/nvb-cvjm-wqd" target="_blank" rel="noopener">meet.google.com/nvb-cvjm-wqd</a></div>
+    </div>
+  </section>
+
+  <!-- 2. Info -->
+  <section id="info">
+    <div class="wrap">
+      <div class="head"><span class="n">2</span><div><h2>ข้อมูลสำหรับผู้เข้าแข่งขัน</h2><p>เตรียมให้พร้อมก่อนวันแข่งขัน</p></div></div>
+      <div class="info-grid">
+        <div class="card">
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5c2.3.2 4 1.8 4.5 4.5"/></svg></div>
+          <h3>ทีมแข่งขัน</h3>
+          <div class="team" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span class="r">ส</span><span class="t">ค</span></div>
+          <ul>
+            <li>ผู้เข้าแข่งขัน 3 คน สำรอง 1 คน</li>
+            <li>ครูผู้ควบคุม 1 คน</li>
+            <li>แต่งกายชุดนักศึกษา</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div>
+          <h3>เอกสารที่ต้องนำมา</h3>
+          <ul>
+            <li>ใบสมัครจากระบบ VEC Skills ลงนามผู้บริหาร ประทับตรา</li>
+            <li>สำเนาบัตรนักศึกษา หรือใบรับรองสภาพ</li>
+            <li>สำเนาใบ อวท. 10</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+          <h3>อุปกรณ์ที่ต้องเตรียม</h3>
+          <ul>
+            <li>คอมพิวเตอร์ตั้งโต๊ะ (PC) 2 เครื่องต่อทีม</li>
+            <li>Driver, เครื่องสำรองไฟ, ปลั๊กพ่วง</li>
+            <li>สายแลนแบบไขว้ (ถ้าต้องการใช้)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="links">
+        <a class="primary" href="https://drive.google.com/drive/folders/14bRE6TDX1MmgmlHe5ATOk_7O1mipb8E0" target="_blank" rel="noopener">
+          <span><strong>ข้อมูลแข่งทักษะ 2569</strong><small>โฟลเดอร์ทั้งหมด</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1NQBRwOq-4QH_APmKCX06VyimvuPK-ekT" target="_blank" rel="noopener">
+          <span><strong>ข้อมูล Green Digital</strong><small>Google Drive</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1c-Jsd_ImbN_dcuaMA0SSGGneA6Su_Bfc" target="_blank" rel="noopener">
+          <span><strong>Program</strong><small>Google Drive</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Schedule (from docs/กำหนดการปวส69-พัฒนานวตกรรมธุรกิจดิจิทัล.pdf) -->
+  <section id="schedule" class="schedule">
+    <div class="wrap">
+      <div class="head"><span class="n">3</span><div><h2>กำหนดการแข่งขัน</h2><p>ห้อง 9601 อาคาร 9 ชั้น 6 วิทยาลัยพณิชยการบางนา</p></div></div>
+      <div class="days">
+        <div class="day">
+          <div class="day-top"><span class="d">10</span><span class="w"><b>วันอังคาร</b>พฤศจิกายน 2569</span></div>
+          <ul>
+            <li><time>08.00–09.00</time><span>ลงทะเบียน</span></li>
+            <li><time>09.30–09.50</time><span>พิธีเปิด (ห้อง 9606)</span></li>
+            <li><time>10.00–12.00</time><span>ติดตั้งเครื่องและโปรแกรม</span></li>
+            <li class="main"><time>13.30–15.30</time><span>Design Thinking + Business Model Canvas (2 ชม.)</span></li>
+          </ul>
+        </div>
+        <div class="day">
+          <div class="day-top"><span class="d">11</span><span class="w"><b>วันพุธ</b>พฤศจิกายน 2569</span></div>
+          <ul>
+            <li><time>08.00–08.30</time><span>ลงทะเบียน</span></li>
+            <li><time>08.30–09.00</time><span>เข้าห้องแข่งขัน ตรวจโปรแกรม</span></li>
+            <li class="main"><time>09.00–17.00</time><span>พัฒนาเว็บแอปพลิเคชัน (8 ชม.)</span></li>
+          </ul>
+        </div>
+        <div class="day">
+          <div class="day-top"><span class="d">12</span><span class="w"><b>วันพฤหัสบดี</b>พฤศจิกายน 2569</span></div>
+          <ul>
+            <li><time>08.00–08.30</time><span>ลงทะเบียน</span></li>
+            <li class="main"><time>09.00</time><span>นำเสนอผลงาน (ทีมละไม่เกิน 20 นาที)</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="small" style="margin-top:12px">กำหนดการอาจเปลี่ยนแปลงตามความเหมาะสม</p>
+      <a class="pdf-link" href="docs/กำหนดการปวส69-พัฒนานวตกรรมธุรกิจดิจิทัล.pdf" target="_blank" rel="noopener">ดูกำหนดการฉบับ PDF ↗</a>
+    </div>
+  </section>
+
+  <!-- 4. Criteria -->
+  <section id="criteria">
+    <div class="wrap">
+      <div class="head"><span class="n">4</span><div><h2>เกณฑ์การให้คะแนน</h2><p>คะแนนเต็ม 100 คะแนน</p></div></div>
+      <div class="card score">
+        <div class="score-row"><div class="lbl">พัฒนาเว็บแอปพลิเคชัน<small>Login, สมาชิก, Admin, Green Digital, รายงาน</small></div><div class="bar"><i style="width:100%"></i></div><div class="pts">60</div></div>
+        <div class="score-row"><div class="lbl">ออกแบบนวัตกรรม<small>Design Thinking</small></div><div class="bar"><i style="width:16.7%"></i></div><div class="pts">10</div></div>
+        <div class="score-row"><div class="lbl">วิเคราะห์เชิงธุรกิจ<small>Business Model Canvas</small></div><div class="bar"><i style="width:16.7%"></i></div><div class="pts">10</div></div>
+        <div class="score-row"><div class="lbl">ออกแบบและสร้างฐานข้อมูล<small>ตาราง ฟิลด์ คีย์ ERD</small></div><div class="bar"><i style="width:16.7%"></i></div><div class="pts">10</div></div>
+        <div class="score-row"><div class="lbl">นำเสนอผลงาน<small>แนะนำตัวไทย/ต่างประเทศ ตอบคำถาม</small></div><div class="bar"><i style="width:16.7%"></i></div><div class="pts">10</div></div>
+        <div class="score-total"><span>รวม</span><span>100</span></div>
+      </div>
+      <div class="medals">
+        <div class="card medal"><span class="dot" style="background:#e0b020"></span><div><b>เหรียญทอง</b><span>80 คะแนนขึ้นไป</span></div></div>
+        <div class="card medal"><span class="dot" style="background:#a9b4b8"></span><div><b>เหรียญเงิน</b><span>70–79 คะแนน</span></div></div>
+        <div class="card medal"><span class="dot" style="background:#c07a3e"></span><div><b>เหรียญทองแดง</b><span>60–69 คะแนน</span></div></div>
+      </div>
+      <a class="pdf-link" href="docs/รายการที่ 62 ทักษะการพัฒนานวัตกรรมเทคโนโลย(2).pdf" target="_blank" rel="noopener">ดูเกณฑ์ฉบับเต็ม (PDF) ↗</a>
+      <div class="card contact-card">
+        <h3>ผู้ประสานงาน</h3>
+        <span>ครูนพมาศ แสนกล้า <a href="tel:0878533310">087-853-3310</a></span>
+        <span>ครูธนาวดี บานแย้ม <a href="tel:0818664262">081-866-4262</a></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>จัดโดย แผนกวิชาเทคโนโลยีธุรกิจดิจิทัล วิทยาลัยพณิชยการธนบุรี <span class="ic" aria-hidden="true">DBT</span></b>
+    การแข่งขันทักษะการพัฒนานวัตกรรมเทคโนโลยีธุรกิจดิจิทัล ระดับ ปวส. ระดับอาชีวศึกษากรุงเทพ ปีการศึกษา 2569
+  </div>
+</footer>
+
+<script>
+(function () {
+  var start = new Date("2026-11-10T08:00:00+07:00").getTime();
+  var end = new Date("2026-11-12T17:00:00+07:00").getTime();
+  var d = document.getElementById("cd-d"), h = document.getElementById("cd-h"), m = document.getElementById("cd-m");
+  var note = document.getElementById("count-note");
+  function tick() {
+    var now = Date.now(), diff = start - now;
+    if (diff <= 0) {
+      document.getElementById("count").hidden = true;
+      note.textContent = now < end ? "กำลังแข่งขัน" : "การแข่งขันจบแล้ว ขอบคุณทุกทีม";
+      return;
+    }
+    d.textContent = Math.floor(diff / 864e5);
+    h.textContent = Math.floor(diff / 36e5) % 24;
+    m.textContent = Math.floor(diff / 6e4) % 60;
+  }
+  tick();
+  setInterval(tick, 30000);
+})();
+</script>
+</html>
